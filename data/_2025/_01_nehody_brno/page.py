@@ -30,7 +30,7 @@ def app():
         y=alt.Y('celkem', title='Počet nehod celkem'),
         # color=alt.Color('hlavni_pricina', title='Hlavní příčina'),
         # xOffset=alt.X('hlavni_pricina:N', sort=data2['hlavni_pricina'].unique().tolist()),
-        color=alt.Color('hlavni_pricina:N',
+        color=alt.Color('hlavni_pricina:N', legend=alt.Legend(orient='bottom', direction='vertical', columns=3),
                         scale=alt.Scale(
                             domain=data2['hlavni_pricina'].unique().tolist(),  # Kategorie
                             range=['red', 'green', 'gray', 'orange', 'purple', 'yellow']  # Odpovídající barvy
