@@ -15,8 +15,8 @@ def sidebar():
 def main_content(selection):
     if selection == 2025:
         st.title("Rok 2025")
-        from data._2025._01_nehody_brno import page as _2025_01
-        _2025_01.app()
+        # st.Page("data/_2025/_01_nehody_brno/app.py")
+        # st.page_link("pages/analysis.py", label="Datová analýza")
 
 
     elif selection == "Stránka 1":
@@ -30,7 +30,7 @@ def main_content(selection):
 
 
 def app():
-    menu()
+    # menu()
 
     selection = sidebar()
     main_content(selection)

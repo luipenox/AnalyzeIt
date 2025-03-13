@@ -1,6 +1,4 @@
 import streamlit as st
-from streamlit import title
-
 from menu import menu
 
 import pandas as pd
@@ -8,6 +6,11 @@ import altair as alt
 
 
 def app():
+    st.title('Dopravní nehody')
+    st.subheader('Na území města Brna v letech 2018 - 2023')
+    st.markdown(
+        f'Zdroj dat: [data.gov.cz](https://data.gov.cz/datov%C3%A1-sada?iri=https%3A%2F%2Fdata.'
+        f'gov.cz%2Fzdroj%2Fdatov%C3%A9-sady%2F44992785%2Ff7604237598371dd478232df3ad93ce9) *(data použita dne 13.03.2025)*')
     data = pd.read_csv('./data/_2025/_01_nehody_brno/files/nehody_celkem.csv')
     data = data[data['rok'].isin(range(2019, 2024))]
     data['rok'] = data['rok'].astype(str)
@@ -64,3 +67,6 @@ def app():
         title=f'{selected3} v letech'  # Název grafu
     )
     st.altair_chart(graf3, use_container_width=True)
+
+if __name__ == "__main__":
+    app()
